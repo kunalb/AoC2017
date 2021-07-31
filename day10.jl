@@ -1,4 +1,4 @@
-function knot_hash(lengths, sz=256, rounds=1)
+function inner_hash(lengths, sz=256, rounds=1)
     # Start at 0, skip sz at 0
     # Reverse the order of length elements
     # Move the current position forward by length + skip sz
@@ -27,10 +27,10 @@ function knot_hash(lengths, sz=256, rounds=1)
     nums
 end 
 
-function true_hash(input)
-    bytes = map(x -> convert(UInt8, x), input)
+function knot_hash(input)
+    bytes = map(x -> convert(UInt8, x), collect(input))
     append!(bytes, [17, 31, 73, 47, 23])
-    hash = knot_hash(bytes, 256, 64)
+    hash = inner_hash(bytes, 256, 64)
     dense = Vector(undef, 16)
     for i in 1:16
         dense[i] = hash[(i - 1) * 16 + 1]
@@ -45,16 +45,18 @@ end
 function main()
     if get(ARGS, 1, 1) == 1
         inputs = map(x -> parse(Int32, x), split(chomp(readline()), ","))
-        nums = knot_hash(inputs, 256)
+        nums = inner_hash(inputs, 256)
         println(nums[1] * nums[2])
     else
-        chars = collect(chomp(readline()))
+        chars = chomp(readline())
         # chars = collect("AoC 2017")
-        println(true_hash(chars))
+        println(knot_hash(chars))
     end  
 end 
 
-main()
+if abspath(PROGRAM_FILE) == @__FILE__()
+    main()
+end 
 
 # Other people's solutions:
 # - should use mod1
