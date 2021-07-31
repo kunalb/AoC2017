@@ -39,7 +39,7 @@ function knot_hash(input)
         end
     end 
 
-    join(map(x -> string(x, base=16), dense))
+    join(map(x -> lpad(string(x, base=16), 2, "0"), dense))
 end 
 
 function main()
