@@ -1,0 +1,692 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="statprofiler.css">
+
+    <title>StatProfilerHTML.jl: /home/knl/dev/aoc/2017/day24.jl</title>
+  </head>
+  <body>
+<div class="report-header">
+  <div class="backlink"><a href="index.html">Report index</a></div>
+  <div class="report-title">StatProfilerHTML.jl report</div>
+  <div class="generated-on">Generated on Sat 21 Aug 2021 20:18:35 EDT</div>
+</div>
+
+    <div id="body-content">
+      <table>
+        <caption>File source code</caption>
+        <tr>
+          <th>Line</td>
+          <th>Exclusive</th>
+          <th>Inclusive</th>
+          <th>Code</th>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-1"></a>1</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">counter = 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-2"></a>2</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-knl-dev-aoc-2017-day24-jl-bridge-2"></a>
+              134 (100.00%) samples spent in bridge<br />
+              0 (ex.),
+              134 (100.00%) (incl.)
+              when called from
+              eval
+              <a href="boot-jl-8a6955cd07d95615bea3-line.html#Lboot-jl-8a6955cd07d95615bea3-line.html-360">line 360</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-3"></a>3</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function bridge(components)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-4"></a>4</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    nodes = Dict{Int64, Set{Tuple{Int64, Int64}}}()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-5"></a>5</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for component in components
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-6"></a>6</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        plugs = Tuple(map(x -&gt; parse(Int64, x), split(component, &quot;/&quot;)))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-7"></a>7</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(get!(nodes, plugs[1], Set()), plugs)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-8"></a>8</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        push!(get!(nodes, plugs[2], Set()), plugs)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-9"></a>9</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-10"></a>10</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-11"></a>11</td>
+          <td></td>
+          <td>134 (100.00%)</td>
+          <td>
+            <div class="callees">
+              134 (100.00%)
+              samples spent calling
+              <a href="day24-jl-887e15bfe6ca629ee2df-line.html#S-home-knl-dev-aoc-2017-day24-jl-bridge_helper-15">bridge_helper</a><br />
+            </div>
+            <span class="code">    bridge_helper(0, nodes)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-12"></a>12</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-13"></a>13</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-14"></a>14</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">global cache = Dict()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-15"></a>15</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="call-sites">
+              <a name="S-home-knl-dev-aoc-2017-day24-jl-bridge_helper-15"></a>
+              134 (100.00%) samples spent in bridge_helper<br />
+              3 (100.00%) (ex.),
+              134 (100.00%) (incl.)
+              when called from
+              bridge_helper
+              <a href="day24-jl-887e15bfe6ca629ee2df-line.html#Lday24-jl-887e15bfe6ca629ee2df-line.html-36">line 36</a><br />
+              0 (ex.),
+              134 (100.00%) (incl.)
+              when called from
+              bridge
+              <a href="day24-jl-887e15bfe6ca629ee2df-line.html#Lday24-jl-887e15bfe6ca629ee2df-line.html-11">line 11</a><br />
+            </div>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-16"></a>16</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function bridge_helper(root::Int64, nodes::Dict{Int64, Set{Tuple{Int64, Int64}}}) :: Int64
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-17"></a>17</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    global counter += 1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-18"></a>18</td>
+          <td>2 (1.49%)</td>
+          <td>2 (1.49%)</td>
+          <td>
+            <span class="code">    if counter &gt; 10000
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-19"></a>19</td>
+          <td>1 (0.75%)</td>
+          <td>1 (0.75%)</td>
+          <td>
+            <span class="code">        return 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-20"></a>20</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-21"></a>21</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-22"></a>22</td>
+          <td></td>
+          <td>24 (17.91%)</td>
+          <td>
+            <div class="callees">
+              24 (100.00%)
+              samples spent calling
+              <a href="dict-jl-655d1919882bd03b261b-line.html#S-home-knl-builds-julia-1-6-2-share-julia-base-dict-jl-haskey-549">haskey</a><br />
+            </div>
+            <span class="code">    if haskey(cache, (root, nodes))
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-23"></a>23</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return cache[(root, nodes)]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-24"></a>24</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-25"></a>25</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-26"></a>26</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    if !haskey(nodes, root) || isempty(nodes[root])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-27"></a>27</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        return 0
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-28"></a>28</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-29"></a>29</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-30"></a>30</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    soln = nothing
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-31"></a>31</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-32"></a>32</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    for choices in nodes[root]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-33"></a>33</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        other = choices[1] == root ? choices[2] : choices[1]
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-34"></a>34</td>
+          <td></td>
+          <td>50 (37.31%)</td>
+          <td>
+            <div class="callees">
+              50 (100.00%)
+              samples spent calling
+              <a href="dict-jl-655d1919882bd03b261b-line.html#S-home-knl-builds-julia-1-6-2-share-julia-base-dict-jl-copy-120">copy</a><br />
+            </div>
+            <span class="code">        remaining_nodes = copy(nodes)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-35"></a>35</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        delete!(remaining_nodes[other], choices)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-36"></a>36</td>
+          <td></td>
+          <td>548513 (409338.06%)</td>
+          <td>
+            <div class="callees">
+              134 (0.02%)
+              samples spent calling
+              <a href="day24-jl-887e15bfe6ca629ee2df-line.html#S-home-knl-dev-aoc-2017-day24-jl-bridge_helper-15">bridge_helper</a><br />
+            </div>
+            <span class="code">        cur = root + other + bridge_helper(other, remaining_nodes)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-37"></a>37</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        if isnothing(soln) || soln &lt; cur
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-38"></a>38</td>
+          <td></td>
+          <td>1 (0.75%)</td>
+          <td>
+            <div class="callees">
+              1 (100.00%)
+              samples spent calling
+              <a href="set-jl-0ca1e007f744383ccf8a-line.html#S-home-knl-builds-julia-1-6-2-share-julia-base-set-jl-iterate-78">iterate</a><br />
+            </div>
+            <span class="code">            soln = cur
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-39"></a>39</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">        end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-40"></a>40</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-41"></a>41</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-42"></a>42</td>
+          <td></td>
+          <td>56 (41.79%)</td>
+          <td>
+            <div class="callees">
+              56 (100.00%)
+              samples spent calling
+              <a href="dict-jl-655d1919882bd03b261b-line.html#S-home-knl-builds-julia-1-6-2-share-julia-base-dict-jl-setindex-380">setindex!</a><br />
+            </div>
+            <span class="code">    cache[(root, nodes)] = soln
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-43"></a>43</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    soln
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-44"></a>44</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-45"></a>45</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-46"></a>46</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">function main()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-47"></a>47</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    input = split(chomp(&quot;&quot;&quot;
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-48"></a>48</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">0/2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-49"></a>49</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">2/2
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-50"></a>50</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">2/3
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-51"></a>51</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">3/4
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-52"></a>52</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">3/5
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-53"></a>53</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">0/1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-54"></a>54</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">10/1
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-55"></a>55</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">9/10
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-56"></a>56</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">&quot;&quot;&quot;), &quot;\n&quot;)
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-57"></a>57</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    input = readlines()
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-58"></a>58</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">    println(bridge(input)[1])
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-59"></a>59</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">end
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-60"></a>60</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code">
+</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td><a name="Lday24-jl-887e15bfe6ca629ee2df-line.html-61"></a>61</td>
+          <td></td>
+          <td></td>
+          <td>
+            <span class="code"># main()
+</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
